@@ -1,0 +1,4 @@
+<div class="holder">
+   <input type="checkbox" [checked]="todo.complete" (change)="completeTodo()">{{todo.task}}
+    <button class="btn btn-danger remove-btn" (click)="remove(todo)">X</button>
+</div>

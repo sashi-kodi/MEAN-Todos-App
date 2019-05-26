@@ -1,0 +1,6 @@
+<form (ngSubmit)="handleSubmit(f)" #f="ngForm">
+<label for="task">
+Add a Todo: 
+    <input type="text" name="task" [(ngModel)]="task" id="task">
+</label>
+</form>

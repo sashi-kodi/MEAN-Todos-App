@@ -1,0 +1,10 @@
+<div *ngIf="error" class="alert">
+    {{error}}
+</div>
+<ul class="todo-list list-group">
+    <li *ngFor="let todo of todos" class="list-group-item">
+       <app-todo-item [todo]="todo" (todoRemoved)="removeTodo($event)" (todoUpdated)="updateTodo($event)"></app-todo-item>
+    </li>
+
+</ul>
+<app-add-todo (todoAdded)="addTodo($event)" ></app-add-todo>
