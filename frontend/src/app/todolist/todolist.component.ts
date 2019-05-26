@@ -1,6 +1,9 @@
-    import { Component, OnInit } from '@angular/core';
+    import { Component, OnInit, Injector } from '@angular/core';
 import {TodoService} from '../todo.service';
 import {Todo} from '../todo';
+import {TodoStatusComponent } from '../todo-status/todo-status.component';
+import {createCustomElement} from '@angular/elements';
+
 @Component({
   selector: 'app-todolist',
   templateUrl: './todolist.component.html',
@@ -11,7 +14,10 @@ export class TodolistComponent implements OnInit {
 todos: Todo[];
 error='';
 
-  constructor(private todoService: TodoService) { }
+  constructor(private todoService: TodoService, private injector: Injector) { 
+   const TodoStatusElement = createCustomElement(TodoStatusComponent, {injector: this.injector});
+   customElements.define('my-status',TodoStatusElement);
+   }
 
   ngOnInit() {
     this.getTodos();
